@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .sky{
+            height: 100vh;
+            width: 100vw;
+            background-image: url(sky.jpg);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow-x: hidden;
+        }
+        .highway{
+            height: 300px;
+            width: 500%;
+            display: block;
+            background-image: url(road.jpg);
+           z-index: 1;
+           background-repeat: repeat-x;
+            position: absolute;
+            bottom:0;
+            left: 0;
+            right: 0;
+           
+            animation: highway 2s linear infinite;
+        }
+             @keyframes highway{
+                100%{
+                    transform: translateX(-3400px);
+                }
+             }
+             .city{
+            height: 400px;
+            width: 5000px;
+            display:block;
+            background-image: url(city.png);
+             z-index: 1;
+           background-repeat: repeat-x;
+            position: absolute;
+            bottom:150px;
+            left: 0;
+            right: 0;
+           
+            animation: city 10s linear infinite;
+        }
+             @keyframes city{
+                100%{
+                    transform: translateX(-3400px);
+                }
+             }
+             .car{
+              z-index: 1;
+            position: absolute;
+            display: block;
+            bottom: 80px;
+            left: 600px;
+            background-repeat: repeat;
+            
+           
+            animation: car 5s linear infinite;
+        }
+             @keyframes car{
+                100%{
+                    transform:translate(infinite)
+                }
+             }
+             .wheel{
+                left: 700px;
+                bottom: 100px;
+                transform: translateX(-50px);
+                position: absolute;
+                z-index: 2;
+             }
+             .wheel img{
+                width: 88px;
+                height: 88px;
+                animation: wheel 500ms linear infinite;
+
+             }
+             .backwheel{
+                left:-4px;
+                position: absolute;
+                bottom: 9px;
+             }
+             .frontwheel{
+                left: 300px;
+                position: absolute;
+                bottom: 9px;
+             }
+             @keyframes wheel {
+                100%{
+                   transform: rotate(360deg);
+                }
+             }
+
+    </style>
+</head>
+<body>
+    <div class="sky">
+        <div class="highway"></div>
+        <div class="city"></div>
+        <div class="car">
+            <img src="car.png" height="250px" width="500px">
+        </div>
+        <div class="wheel">
+            <img src="wheel.png" class="backwheel">
+            <img src="wheel.png" class="frontwheel">
+        </div>  
+
+    </div>
+
+    <script>
+       
+       var audio= document.createElement("audio");
+       audio.src="./sound.mp3";
+
+
+        setTimeout(() => {
+            audio.play();
+            audio.loop=true;
+        }, 2000);
+
+    </script>
+</body>
+</html>
